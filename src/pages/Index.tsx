@@ -1,23 +1,37 @@
-import { ContactForm } from "@/components/ContactForm";
-
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-6">
-      <div className="w-full mx-auto text-center space-y-8 animate-fade-in">
-        {/* Logo/Title */}
-        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-gradient mb-8">
+    <div style={{ 
+      minHeight: '100vh', 
+      backgroundColor: '#1a1a2e', 
+      color: 'white', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      padding: '20px'
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <h1 style={{ 
+          fontSize: '4rem', 
+          fontWeight: 'bold', 
+          marginBottom: '2rem',
+          background: 'linear-gradient(90deg, #a855f7, #06b6d4)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent'
+        }}>
           STDIOEAST
         </h1>
         
-        {/* Coming Soon Text */}
-        <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-12">
+        <h2 style={{ 
+          fontSize: '2rem', 
+          marginBottom: '2rem',
+          color: '#e5e7eb'
+        }}>
           Coming Soon...
         </h2>
         
-        {/* Contact Form */}
-        <div className="max-w-md mx-auto">
-          <ContactForm />
-        </div>
+        <p style={{ color: '#9ca3af' }}>
+          Your site is working! This is a test version.
+        </p>
       </div>
     </div>
   );
