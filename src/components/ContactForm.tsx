@@ -6,14 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Send } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -61,71 +54,43 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground/80">Name</FormLabel>
-              <FormControl>
-                <Input 
-                  placeholder="Your name" 
-                  {...field}
-                  className="bg-card border-border focus:border-primary transition-colors"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground/80">Email</FormLabel>
-              <FormControl>
-                <Input 
-                  type="email"
-                  placeholder="your@email.com" 
-                  {...field}
-                  className="bg-card border-border focus:border-primary transition-colors"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground/80">Message</FormLabel>
-              <FormControl>
-                <Textarea 
-                  placeholder="Tell us about your project..." 
-                  {...field}
-                  className="bg-card border-border focus:border-primary transition-colors min-h-32 resize-none"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <Button 
-          type="submit" 
-          disabled={isSubmitting}
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
-        >
-          {isSubmitting ? "Sending..." : "Send Message"}
-        </Button>
-      </form>
-    </Form>
+    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <Input
+        placeholder="Your Name"
+        {...form.register("name")}
+        className="bg-input border-0 h-14 text-base placeholder:text-muted-foreground"
+      />
+      {form.formState.errors.name && (
+        <p className="text-sm text-destructive text-left">{form.formState.errors.name.message}</p>
+      )}
+      
+      <Input
+        type="email"
+        placeholder="Your Email"
+        {...form.register("email")}
+        className="bg-input border-0 h-14 text-base placeholder:text-muted-foreground"
+      />
+      {form.formState.errors.email && (
+        <p className="text-sm text-destructive text-left">{form.formState.errors.email.message}</p>
+      )}
+      
+      <Textarea
+        placeholder="Your Message"
+        {...form.register("message")}
+        className="bg-input border-0 min-h-[140px] text-base placeholder:text-muted-foreground resize-none"
+      />
+      {form.formState.errors.message && (
+        <p className="text-sm text-destructive text-left">{form.formState.errors.message.message}</p>
+      )}
+      
+      <Button 
+        type="submit" 
+        disabled={isSubmitting}
+        className="w-full h-14 text-lg font-medium btn-gradient border-0 hover:opacity-90 transition-opacity"
+      >
+        <Send className="mr-2 h-5 w-5" />
+        {isSubmitting ? "Sending..." : "Contact Us"}
+      </Button>
+    </form>
   );
 };
