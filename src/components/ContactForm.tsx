@@ -3,7 +3,7 @@ import { Send } from "lucide-react";
 
 export const ContactForm = () => {
   const handleContactClick = () => {
-    window.location.href = "mailto:studioeast@gmail.com";
+    window.location.href = "mailto:stdioeast@gmail.com";
   };
 
   return (
