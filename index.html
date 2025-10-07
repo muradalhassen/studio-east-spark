@@ -36,14 +36,23 @@
         margin-bottom: 2rem;
         color: #e5e7eb;
       }
-      p {
-        color: #9ca3af;
-        font-size: 1.2rem;
+      .contact-btn {
+        display: inline-block;
+        padding: 15px 30px;
+        margin-top: 2rem;
+        background: linear-gradient(90deg, #a855f7, #06b6d4);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
       }
-      .success {
-        color: #10b981;
-        font-weight: bold;
-        margin-top: 1rem;
+      .contact-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+        background: linear-gradient(90deg, #9333ea, #0891b2);
       }
     </style>
   </head>
@@ -51,8 +60,7 @@
     <div class="container">
       <h1>STDIOEAST</h1>
       <h2>Coming Soon...</h2>
-      <p>Your website is now working!</p>
-      <p class="success">✅ No more white screen!</p>
+      <a href="mailto:stdioeast@gmail.com" class="contact-btn">Contact Us</a>
     </div>
   </body>
 </html>
